@@ -16,7 +16,7 @@ import org.apache.kudu.client.PartialRow;
 import org.apache.kudu.flume.sink.KuduOperationsProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.rick.util.JsonStr2Map;
+import org.rick.util.Str2Map;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -80,7 +80,7 @@ public class JsonKuduOperationsProducer implements KuduOperationsProducer {
     @Override
     public List<Operation> getOperations(Event event) throws FlumeException {
         String raw = new String(event.getBody(), charset);
-        Map<String, String> rawMap = JsonStr2Map.jsonStr2Map(raw);
+        Map<String, String> rawMap = Str2Map.jsonStr2Map(raw);
         if(rawMap.containsKey("log_id")){
             rawMap.remove("log_id");
         }

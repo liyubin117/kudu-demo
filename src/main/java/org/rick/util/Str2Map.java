@@ -11,7 +11,7 @@ import java.util.Map;
  * @company Netease
  * @description
  */
-public class JsonStr2Map {
+public class Str2Map {
     /**
      * 将Json字符串转为Map对象
      * @param jsonStr
@@ -19,20 +19,20 @@ public class JsonStr2Map {
      */
     public static Map<String, String> jsonStr2Map(String jsonStr) {
         Map<String, String> resultMap = new HashMap<>();
-//        Pattern pattern = Pattern.compile("(\"\\w+\"):(\"[^\"]+\")");
-//        Matcher m = pattern.matcher(jsonStr);
-//        String[] strs = null;
-//        while (m.find()) {
-//            strs = m.group().split(":");
-//            if(strs != null && strs.length == 2) {
-//                resultMap.put(strs[0].replaceAll("\"", "").trim(), strs[1].trim().replaceAll("\"", ""));
-//            }
-//        }
-
 
         JSONObject jo = JSONObject.parseObject(jsonStr);
         for(Map.Entry entry:jo.entrySet()){
             resultMap.put(entry.getKey().toString(), entry.getValue().toString());
+        }
+        return resultMap;
+    }
+
+    public static Map<String, String> csvStr2Map(String str) {
+        Map<String, String> resultMap = new HashMap<>();
+
+        for(String entry:str.split(",")){
+            String[] tmp = entry.split(":");
+            resultMap.put(tmp[0], tmp[1]);
         }
         return resultMap;
     }
