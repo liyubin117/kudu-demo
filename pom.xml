@@ -17,7 +17,7 @@
         <kudu.version>1.7.0</kudu.version>
         <scala.version>2.11</scala.version>
         <flume.version>1.7.0</flume.version>
-        <hadoop.version>2.6.0</hadoop.version>
+        <hadoop.version>2.7.0</hadoop.version>
         <avro.version>1.8.1</avro.version>
         <flume-kudu.version>1.7.0</flume-kudu.version>
         <java.version>1.8</java.version>
